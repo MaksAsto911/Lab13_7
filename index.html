@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Використання Функції як Змінної</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+        .input-field {
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #4a90e2;
+            border-radius: 5px;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Знайти Максимальне Число</h1>
+    <input type="number" id="firstNumber" class="input-field" placeholder="Перше число">
+    <input type="number" id="secondNumber" class="input-field" placeholder="Друге число">
+    <button class="button" onclick="findMax()">Знайти Максимум</button>
+    <h2 id="result"></h2>
+
+    <script>
+        // Функція для знаходження максимального з двох чисел
+        function max(a, b) { 
+            return (a > b) ? a : b;
+        }
+
+        // Функція для знаходження максимуму, яка використовує max
+        function findMax() {
+            const num1 = parseFloat(document.getElementById("firstNumber").value);
+            const num2 = parseFloat(document.getElementById("secondNumber").value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Будь ласка, введіть обидва числа.");
+                return;
+            }
+
+            const maximum = max(num1, num2); // Виклик функції max
+            document.getElementById("result").innerText = `Максимальне число: ${maximum}`;
+        }
+
+        // Використання функції max як змінної
+        document.write("Значення функції max: " + max.valueOf() + "<br>");
+    </script>
+</body>
+</html>
